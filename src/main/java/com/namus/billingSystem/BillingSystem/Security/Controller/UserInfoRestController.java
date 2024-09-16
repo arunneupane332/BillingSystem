@@ -26,7 +26,6 @@ public class UserInfoRestController {
         // Save the user using the service
         userInfoService.saveUserInfo(userInfo);
 
-        // Return a response with status 201 (Created)
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 GlobalApiResponse.builder()
                         .code(HttpStatus.CREATED.value())

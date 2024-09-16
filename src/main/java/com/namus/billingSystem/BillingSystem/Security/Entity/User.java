@@ -1,6 +1,5 @@
-package com.cellpay.ticketingSystem.security.entity;
+package com.namus.billingSystem.BillingSystem.Security.Entity;
 
-import com.namus.billingSystem.BillingSystem.Security.Entity.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

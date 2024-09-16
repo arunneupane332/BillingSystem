@@ -1,6 +1,7 @@
 package com.namus.billingSystem.BillingSystem.Security.Services;
 
 
+import com.namus.billingSystem.BillingSystem.Security.Entity.Role;
 import com.namus.billingSystem.BillingSystem.Security.Repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,7 +30,7 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         Set<Role> roles = user.getRoles();
         List<? extends SimpleGrantedAuthority> mylist = roles.stream()
-                .map(data -> new SimpleGrantedAuthority("ROLE_" + data.getName())).collect(Collectors.toList());
+                .map(data -> new SimpleGrantedAuthority("ROLE_" + data.getRole())).collect(Collectors.toList());
         return User.withUsername(user.getUsername()).password(user.getPassword())
                 .authorities(mylist).build();
 
