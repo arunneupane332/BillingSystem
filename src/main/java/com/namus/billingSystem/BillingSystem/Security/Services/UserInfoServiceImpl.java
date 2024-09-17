@@ -3,13 +3,11 @@ package com.namus.billingSystem.BillingSystem.Security.Services;
 
 import com.namus.billingSystem.BillingSystem.Security.Entity.Role;
 import com.namus.billingSystem.BillingSystem.Security.Entity.User;
-import com.namus.billingSystem.BillingSystem.Security.Repo.RoleRepository;
 import com.namus.billingSystem.BillingSystem.Security.Repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Service

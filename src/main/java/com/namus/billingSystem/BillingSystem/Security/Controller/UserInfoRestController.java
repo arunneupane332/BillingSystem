@@ -22,10 +22,7 @@ public class UserInfoRestController {
 
     @PostMapping("/saveUser")
     public ResponseEntity<GlobalApiResponse> saveRestUserInfo(@RequestBody User userInfo) throws Exception {
-
-        // Save the user using the service
         userInfoService.saveUserInfo(userInfo);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 GlobalApiResponse.builder()
                         .code(HttpStatus.CREATED.value())
