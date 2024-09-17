@@ -22,7 +22,7 @@ public class JwtServices {
     @Value("86400000")
     private int jwtExpirationMs;
 
-    public String extractUsername(String token) {
+public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 

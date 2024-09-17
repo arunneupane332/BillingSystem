@@ -23,15 +23,15 @@ public class CustomUserDetailService implements UserDetailsService {
     private final UserRepository userInfoRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.namus.billingSystem.BillingSystem.Security.Entity.User user = userInfoRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
+        com.namus.billingSystem.BillingSystem.Security.Entity.User user = userInfoRepository.findByUsername(phoneNumber);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
+            throw new UsernameNotFoundException("User not found with phoneNumber: " + phoneNumber);
         }
         Set<Role> roles = user.getRoles();
         List<? extends SimpleGrantedAuthority> mylist = roles.stream()
                 .map(data -> new SimpleGrantedAuthority("ROLE_" + data.getRole())).collect(Collectors.toList());
-        return User.withUsername(user.getUsername()).password(user.getPassword())
+        return User.withUsername(user.getPhoneNumber()).password(user.getPassword())
                 .authorities(mylist).build();
 
     }

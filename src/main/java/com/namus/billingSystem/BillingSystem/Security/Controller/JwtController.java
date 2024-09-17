@@ -31,6 +31,5 @@ public class JwtController {
         } else {
             throw new BadCredentialsException("Bad credentials");
         }
-
     }
 }

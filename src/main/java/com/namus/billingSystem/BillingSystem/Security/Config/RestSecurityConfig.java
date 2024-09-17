@@ -44,7 +44,7 @@ public class RestSecurityConfig {
                 .authorizeHttpRequests(request -> {
                     request.requestMatchers("/rest/authenticate").permitAll();
                     request.requestMatchers("/rest/saveUser").permitAll();
-                    request.requestMatchers("/rest/**").hasAnyRole("SUPER_ADMIN", "ADMIN");
+                    request.requestMatchers("/rest/**").hasAnyRole("SUPER_ADMIN", "ADMIN","USER");
                     request.anyRequest().authenticated();
                 })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
