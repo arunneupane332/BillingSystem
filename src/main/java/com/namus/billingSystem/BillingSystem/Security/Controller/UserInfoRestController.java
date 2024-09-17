@@ -21,7 +21,7 @@ public class UserInfoRestController {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/saveUser")
-    public ResponseEntity<GlobalApiResponse> saveRestUserInfo(@RequestBody User userInfo) {
+    public ResponseEntity<GlobalApiResponse> saveRestUserInfo(@RequestBody User userInfo) throws Exception {
 
         // Save the user using the service
         userInfoService.saveUserInfo(userInfo);

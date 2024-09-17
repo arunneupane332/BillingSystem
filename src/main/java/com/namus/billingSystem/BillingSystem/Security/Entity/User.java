@@ -28,7 +28,7 @@ public class User {
 
     @NotBlank(message = "Phone number is required")
     @Pattern(regexp = "^\\d{10}$", message = "Phone number must be exactly 10 digits")
-    private String phoneNumber;
+    private String username;
 
     private String address;
     private String shopKey;
@@ -55,7 +55,7 @@ public class User {
         return "User{" +
                 "userId=" + userId +
                 ", fullName='" + fullName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", phoneNumber='" + username + '\'' +
                 ", address='" + address + '\'' +
                 ", shopKey='" + shopKey + '\'' +
                 ", email='" + email + '\'' +

@@ -20,9 +20,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public void saveUserInfo(User userInfo) {
-        String password = userInfo.getPassword();
-        userInfo.setPassword(bCryptPasswordEncoder.encode(password));
+    public void saveUserInfo(User userInfo) throws Exception{
+        if(!userInfo.getPassword().equals(userInfo.getConfirmPassword())){
+            throw new Exception("Password and Confirm Password do not match");
+        }
+        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
         Set<Role> role=userInfo.getRoles();
         userInfo.setRoles(role);
         userInfoRepository.save(userInfo);

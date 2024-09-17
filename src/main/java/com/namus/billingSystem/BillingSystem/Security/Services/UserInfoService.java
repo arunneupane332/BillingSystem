@@ -5,5 +5,5 @@ import com.namus.billingSystem.BillingSystem.Security.Entity.User;
 
 public interface UserInfoService {
 
-    void saveUserInfo(User userInfo);
+    void saveUserInfo(User userInfo)throws Exception;
 }
